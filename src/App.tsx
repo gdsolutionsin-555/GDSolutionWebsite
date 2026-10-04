@@ -20,10 +20,10 @@ import Footer from '@/components/Footer';
 function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/919830908641"
+      href="https://wa.me/918282899565"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with GD Solutions on WhatsApp at +91 98309 08641"
+      aria-label="Chat with GD Solutions on WhatsApp at +91 82828 99565"
       className="group fixed bottom-5 right-5 z-[100] flex items-center gap-3 rounded-full bg-[#25D366] p-3 text-white shadow-[0_10px_35px_rgba(37,211,102,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_14px_45px_rgba(37,211,102,0.5)] sm:bottom-7 sm:right-7"
     >
       <span className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-[#25D366] opacity-50 blur-xl animate-pulse" />
@@ -35,7 +35,7 @@ function FloatingWhatsApp() {
 
       <span className="hidden pr-2 text-left sm:block">
         <span className="block text-xs font-medium text-white/80">Chat with us</span>
-        <span className="block text-sm font-bold tracking-wide">+91 98309 08641</span>
+        <span className="block text-sm font-bold tracking-wide">+91 82828 99565</span>
       </span>
 
       <span className="absolute -top-2 right-1 h-3 w-3 rounded-full border-2 border-white bg-white shadow-sm" />

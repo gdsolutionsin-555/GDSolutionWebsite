@@ -33,7 +33,7 @@ export default function CTA() {
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://wa.me/919830908641"
+                href="https://wa.me/918282899565"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-ghost-light"

@@ -135,13 +135,13 @@ export default function Splash({ onEnter }: { onEnter: () => void }) {
                 WhatsApp &middot; Quick chat
               </p>
               <a
-                href="https://wa.me/919830908641"
+                href="https://wa.me/918282899565"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 flex items-center gap-2 rounded-lg bg-sky-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sky-500"
               >
                 <MessageCircle className="h-4 w-4" />
-                +91 98309 08641
+                +91 82828 99565
               </a>
             </div>
           </div>
