@@ -26,7 +26,7 @@ export default function Splash({ onEnter }: { onEnter: () => void }) {
   useScrollReveal();
 
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-ink-950">
+    <div className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-ink-950">
       {/* Single static background image, covers the full screen */}
       <img
         src="/hero-keyboard.jpg"
@@ -44,9 +44,10 @@ export default function Splash({ onEnter }: { onEnter: () => void }) {
             alt="GD Solutions logo"
             className="h-24 w-24 object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.45)] sm:h-28 sm:w-28"
           />
-          <h1 className="font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          {/* Not an <h1> — the page's single H1 lives in the Hero section underneath */}
+          <p className="font-sans text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             GD Solutions
-          </h1>
+          </p>
           <p className="flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-0.5">
             <span className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-300">
               Innovate | Automate | Secure

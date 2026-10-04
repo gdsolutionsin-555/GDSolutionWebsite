@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { MessageCircle } from 'lucide-react';
 import Splash from '@/components/Splash';
@@ -71,11 +71,23 @@ function MainSite() {
 function App() {
   const [entered, setEntered] = useState(false);
 
-  if (!entered) {
-    return <Splash onEnter={() => setEntered(true)} />;
-  }
+  // MainSite always renders in the DOM — including for search engine and AI
+  // crawlers that read raw HTML — so real site content is never hidden
+  // behind the splash click. The splash sits on top as a fixed overlay for
+  // human visitors and is removed once they click through.
+  useEffect(() => {
+    document.body.style.overflow = entered ? '' : 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [entered]);
 
-  return <MainSite />;
+  return (
+    <>
+      <MainSite />
+      {!entered && <Splash onEnter={() => setEntered(true)} />}
+    </>
+  );
 }
 
 export default App;
