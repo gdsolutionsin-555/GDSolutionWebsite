@@ -48,12 +48,21 @@ export default function Navbar() {
               alt="GD Solutions"
               className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105"
             />
-            <span
-              className={`text-base font-extrabold tracking-tight transition-colors duration-300 ${
-                scrolled ? 'text-ink-900' : 'text-white'
-              }`}
-            >
-              GD SOLUTIONS
+            <span className="flex flex-col leading-tight">
+              <span
+                className={`text-base font-extrabold tracking-tight transition-colors duration-300 ${
+                  scrolled ? 'text-ink-900' : 'text-white'
+                }`}
+              >
+                GD SOLUTIONS
+              </span>
+              <span
+                className={`text-[10px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
+                  scrolled ? 'text-brand-600' : 'text-white/70'
+                }`}
+              >
+                Innovate | Automate | Secure
+              </span>
             </span>
           </a>
 
