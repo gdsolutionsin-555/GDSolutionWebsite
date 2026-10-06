@@ -105,6 +105,7 @@ export default function Chatbot() {
       if (!res.ok || !data.reply) throw new Error(data.error || 'Request failed');
       setMessages((m) => [...m, { role: 'assistant', content: data.reply }]);
     } catch (e) {
+      console.error('Chat request failed:', e);
       setMessages((m) => [
         ...m,
         {
