@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight, Mail, MessageCircle, Phone } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -35,6 +35,33 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
+      {/* Top contact bar — collapses away once the page is scrolled */}
+      <div
+        className={`overflow-hidden border-b border-white/10 bg-ink-950/40 backdrop-blur-sm transition-all duration-300 ${
+          scrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'
+        }`}
+      >
+        <div className="container-px mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-5 gap-y-1 py-2 text-xs font-medium text-white/80 sm:justify-end">
+          <a href="mailto:contact@gdsolutions.in" className="flex items-center gap-1.5 transition-colors hover:text-white">
+            <Mail className="h-3.5 w-3.5" />
+            contact@gdsolutions.in
+          </a>
+          <a
+            href="https://wa.me/918282899565"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 transition-colors hover:text-white"
+          >
+            <MessageCircle className="h-3.5 w-3.5" />
+            +91 82828 99565
+          </a>
+          <a href="tel:+919007502045" className="flex items-center gap-1.5 transition-colors hover:text-white">
+            <Phone className="h-3.5 w-3.5" />
+            +91 90075 02045
+          </a>
+        </div>
+      </div>
+
       <nav className="container-px mx-auto max-w-7xl">
         <div
           className={`flex items-center justify-between transition-all duration-300 ${
