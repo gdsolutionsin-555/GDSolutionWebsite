@@ -15,6 +15,7 @@ import About from '@/components/About';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import Chatbot from '@/components/Chatbot';
 
 
 function FloatingWhatsApp() {
@@ -64,6 +65,7 @@ function MainSite() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <Chatbot />
     </>
   );
 }

@@ -60,3 +60,35 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* ---------- Lucky robot animations ---------- */
+@keyframes robotFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes robotBlink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+@keyframes robotAntenna {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.5); }
+}
+@keyframes robotWave {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  70% { transform: rotate(-24deg); }
+  80% { transform: rotate(10deg); }
+  90% { transform: rotate(-20deg); }
+}
+@keyframes robotGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+.robot-float { animation: robotFloat 3.2s ease-in-out infinite; }
+.robot-eye { animation: robotBlink 4.5s infinite; transform-box: fill-box; transform-origin: center; }
+.robot-antenna { animation: robotAntenna 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.robot-hand { animation: robotWave 5s ease-in-out infinite; transform-box: fill-box; transform-origin: 80% 90%; }
+.robot-glow { animation: robotGlow 2.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .robot-float, .robot-eye, .robot-antenna, .robot-hand, .robot-glow { animation: none; }
+}
