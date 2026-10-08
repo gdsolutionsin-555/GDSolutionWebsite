@@ -42,7 +42,7 @@ const SLIDES: Slide[] = [
   },
   {
     // Replace with a real photo any time, e.g. '/services/boardroom.jpg' (place the file in /public/services).
-    image: '/services/boardroom-wide.svg',
+    image: '/services/boardroom.jpg',
     alt: 'Modern boardroom with a video-conferencing display, camera bar, speakerphone and laptops on the table',
     title: 'Connect. Communicate. Collaborate',
     caption: 'Professional Audio-Video & Unified Communication Solutions',
