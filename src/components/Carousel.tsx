@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Brain, Code, Server, Cctv, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Brain, Code, Server, Cctv, Headset, ArrowLeft, ArrowRight } from 'lucide-react';
 
 type Slide = {
   image: string;
@@ -7,6 +7,8 @@ type Slide = {
   title: string;
   caption: string;
   icon: typeof Brain;
+  /** Optional Tailwind object-position class, e.g. 'object-right' to keep the subject visible when cropped. */
+  position?: string;
 };
 
 const SLIDES: Slide[] = [
@@ -37,6 +39,15 @@ const SLIDES: Slide[] = [
     title: 'CCTV Installation',
     caption: 'Professional surveillance systems to keep your premises secure.',
     icon: Cctv,
+  },
+  {
+    // Replace with a real photo any time, e.g. '/services/boardroom.jpg' (place the file in /public/services).
+    image: '/services/boardroom-wide.svg',
+    alt: 'Modern boardroom with a video-conferencing display, camera bar, speakerphone and laptops on the table',
+    title: 'Connect. Communicate. Collaborate',
+    caption: 'Professional Audio-Video & Unified Communication Solutions',
+    icon: Headset,
+    position: 'object-right',
   },
 ];
 
@@ -95,7 +106,7 @@ export default function Carousel() {
                     src={slide.image}
                     alt={slide.alt}
                     loading={i === 0 ? 'eager' : 'lazy'}
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full object-cover ${slide.position ?? ''}`}
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-r from-ink-950/85 via-ink-950/50 to-transparent" />

@@ -8,7 +8,6 @@ import {
   Server,
   LifeBuoy,
   Search,
-  Headset,
 } from 'lucide-react';
 import { SERVICE_ART, type ServiceArtKey } from '@/components/ServiceArt';
 
@@ -23,6 +22,8 @@ interface Service {
   featured?: boolean;
   isNew?: boolean;
   wide?: boolean;
+  /** Large picture panel next to the text (used by the wide communication card). */
+  showcase?: boolean;
   subtitle?: string;
   tags?: string[];
   /** Optional bold-label bullet list shown instead of the plain description. */
@@ -85,17 +86,6 @@ const SERVICES: Service[] = [
     icon: Search,
     title: 'SEO and Digital Marketing',
     desc: 'Strategies designed to improve visibility, traffic and online presence.',
-  },
-  {
-    num: '08',
-    art: 'comms',
-    icon: Headset,
-    isNew: true,
-    wide: true,
-    title: 'Connect. Communicate. Collaborate',
-    subtitle: 'Professional Audio-Video & Unified Communication Solutions',
-    desc: 'Reliable conferencing systems and IP telephony for modern workplaces, plus wired, wireless, USB, Bluetooth and noise-cancelling headsets for offices, contact centres and remote teams.',
-    tags: ['Conferencing', 'IP Telephony', 'Professional Headsets', 'Call-Centre Headsets'],
   },
 ];
 
@@ -268,6 +258,7 @@ export default function Services() {
                 />
 
                 {/* Background picture: photo if provided, otherwise line-art illustration */}
+                {!service.showcase && (
                 <div
                   className={`pointer-events-none absolute inset-y-0 right-0 text-brand-600 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-100 ${
                     service.wide ? 'w-[62%] opacity-60' : 'w-[78%] opacity-50'
@@ -296,6 +287,7 @@ export default function Services() {
                     })()
                   )}
                 </div>
+                )}
 
                 {/* Animated top accent */}
                 <div className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-brand-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
@@ -303,6 +295,8 @@ export default function Services() {
                 {/* Decorative corner */}
                 <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-50 opacity-0 transition-all duration-500 ease-out group-hover:scale-125 group-hover:opacity-100" />
 
+                <div className={service.showcase ? 'relative grid items-center gap-8 lg:grid-cols-2' : 'contents'}>
+                <div className={service.showcase ? 'relative flex h-full flex-col' : 'contents'}>
                 <div className="relative flex items-start justify-between">
                   <div className="relative">
                     <span
@@ -375,6 +369,21 @@ export default function Services() {
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5" />
                   </span>
                 </a>
+
+                </div>
+
+                {service.showcase && service.image && (
+                  <div className="relative overflow-hidden rounded-xl bg-ink-900 shadow-[0_18px_40px_rgba(2,44,34,0.25)] ring-1 ring-brand-300/40">
+                    <img
+                      src={service.image}
+                      alt="Boardroom with video-conferencing display, camera bar, speakerphone and laptops on the table"
+                      loading="lazy"
+                      className="aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/30 via-transparent to-transparent" />
+                  </div>
+                )}
+                </div>
 
                 {/* Bottom progress line */}
                 <div className="absolute bottom-0 left-7 right-7 h-px overflow-hidden bg-ink-100">

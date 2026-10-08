@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 320" width="840" height="320" role="img" aria-label="Modern boardroom with video-conferencing display, camera bar, speakerphone and laptops">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.6" stop-color="#0b2a2a"/>
+      <stop offset="1" stop-color="#064e3b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.6">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#052e2b"/>
+    </linearGradient>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="840" height="320" fill="url(#bg)"/>
+  <ellipse cx="570" cy="150" rx="330" ry="170" fill="url(#glow)"/>
+  <path d="M0 250 H840" stroke="#ffffff" stroke-opacity="0.06"/>
+  <svg x="316" y="0" width="512" height="320" viewBox="0 0 480 300">
+
+  <!-- room -->
+  
+  
+  
+  <!-- ceiling pods (mic / speaker) -->
+  <g stroke="#6ee7b7" stroke-opacity="0.7" stroke-width="1.5" fill="#ffffff" fill-opacity="0.08">
+    <circle cx="70" cy="22" r="12"/><circle cx="410" cy="22" r="12"/>
+  </g>
+  <circle cx="70" cy="22" r="4.5" fill="#34d399"/><circle cx="410" cy="22" r="4.5" fill="#34d399"/>
+
+  <!-- wall display -->
+  <rect x="114" y="26" width="252" height="140" rx="8" fill="#0b1220" stroke="#e2e8f0" stroke-opacity="0.8" stroke-width="2"/>
+  <rect x="120" y="32" width="240" height="128" rx="4" fill="url(#screen)"/>
+  <g fill="#ffffff" fill-opacity="0.08" stroke="#6ee7b7" stroke-opacity="0.45" stroke-width="1">
+    <rect x="130" y="40" width="105" height="50" rx="4"/>
+    <rect x="245" y="40" width="105" height="50" rx="4"/>
+    <rect x="130" y="100" width="105" height="50" rx="4"/>
+    <rect x="245" y="100" width="105" height="50" rx="4"/>
+  </g>
+  <g fill="#a7f3d0" fill-opacity="0.85">
+    <circle cx="182" cy="58" r="8"/><circle cx="297" cy="58" r="8"/>
+    <circle cx="182" cy="118" r="8"/><circle cx="297" cy="118" r="8"/>
+  </g>
+  <g fill="none" stroke="#a7f3d0" stroke-opacity="0.85" stroke-width="2.5" stroke-linecap="round">
+    <path d="M164 86 q18 -20 36 0"/><path d="M279 86 q18 -20 36 0"/>
+    <path d="M164 146 q18 -20 36 0"/><path d="M279 146 q18 -20 36 0"/>
+  </g>
+  <!-- live indicator -->
+  <circle cx="340" cy="46" r="3" fill="#34d399"/>
+
+  <!-- camera bar under display -->
+  <rect x="198" y="170" width="84" height="9" rx="4.5" fill="#e2e8f0" fill-opacity="0.9"/>
+  <circle cx="240" cy="174.5" r="2.6" fill="#10b981"/>
+
+  <!-- back chairs -->
+  <g fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.25">
+    <rect x="66" y="176" width="46" height="40" rx="14"/>
+    <rect x="136" y="180" width="46" height="40" rx="14"/>
+    <rect x="298" y="180" width="46" height="40" rx="14"/>
+    <rect x="368" y="176" width="46" height="40" rx="14"/>
+  </g>
+
+  <!-- conference table -->
+  <path d="M40 238 v10 c40 52 360 52 400 0 v-10 z" fill="#ffffff" fill-opacity="0.08" stroke="#6ee7b7" stroke-opacity="0.5"/>
+  <ellipse cx="240" cy="238" rx="200" ry="48" fill="url(#table)" stroke="#6ee7b7" stroke-opacity="0.7" stroke-width="1.5"/>
+
+  <!-- speakerphone + sound waves -->
+  <g fill="none" stroke="#6ee7b7" stroke-opacity="0.75" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 5">
+    <path d="M212 214 q28 -16 56 0"/><path d="M200 207 q40 -24 80 0"/>
+  </g>
+  <ellipse cx="240" cy="232" rx="28" ry="9" fill="#10b981"/>
+  <ellipse cx="240" cy="229" rx="20" ry="6" fill="#064e3b"/>
+  <ellipse cx="240" cy="229" rx="20" ry="6" fill="none" stroke="#6ee7b7"/>
+
+  <!-- extra table mics -->
+  <g fill="#10b981"><ellipse cx="168" cy="252" rx="12" ry="4"/><ellipse cx="312" cy="252" rx="12" ry="4"/></g>
+
+  <!-- laptops -->
+  <g fill="#ffffff" fill-opacity="0.16" stroke="#e2e8f0" stroke-opacity="0.85" stroke-width="1.5">
+    <path d="M102 212 H148 L152 232 H98 Z"/>
+    <rect x="92" y="233" width="66" height="5" rx="2.5"/>
+    <path d="M332 212 H378 L382 232 H328 Z"/>
+    <rect x="322" y="233" width="66" height="5" rx="2.5"/>
+  </g>
+  <g fill="#34d399" fill-opacity="0.55"><rect x="108" y="217" width="34" height="3" rx="1.5"/><rect x="338" y="217" width="34" height="3" rx="1.5"/></g>
+</svg>
+</svg>
