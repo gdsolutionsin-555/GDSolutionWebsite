@@ -92,3 +92,33 @@
 @media (prefers-reduced-motion: reduce) {
   .robot-float, .robot-eye, .robot-antenna, .robot-hand, .robot-glow { animation: none; }
 }
+
+/* ---------- "Ask Lucky" label: colour-shifting text + glow ---------- */
+@keyframes askLuckyShift {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+@keyframes askLuckyGlow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.55)); }
+  33%      { filter: drop-shadow(0 0 9px rgba(6, 182, 212, 0.85)); }
+  66%      { filter: drop-shadow(0 0 9px rgba(139, 92, 246, 0.8)); }
+}
+@keyframes askLuckyRing {
+  0%, 100% { box-shadow: 0 6px 22px rgba(16, 185, 129, 0.30), 0 0 0 1px rgba(16, 185, 129, 0.25); }
+  33%      { box-shadow: 0 6px 26px rgba(6, 182, 212, 0.40), 0 0 0 1px rgba(6, 182, 212, 0.35); }
+  66%      { box-shadow: 0 6px 26px rgba(139, 92, 246, 0.38), 0 0 0 1px rgba(139, 92, 246, 0.35); }
+}
+.ask-lucky-pill { animation: askLuckyRing 6s ease-in-out infinite; }
+.ask-lucky-text {
+  display: inline-block;
+  background: linear-gradient(90deg, #059669, #34d399, #06b6d4, #8b5cf6, #ec4899, #34d399, #059669);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: askLuckyShift 5s linear infinite, askLuckyGlow 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ask-lucky-pill, .ask-lucky-text { animation: none; }
+}

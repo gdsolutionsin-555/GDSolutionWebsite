@@ -81,9 +81,9 @@ export default function Chatbot() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  // Gentle nudge after a few seconds if the visitor hasn't opened the chat.
+  // Show the animated "Ask Lucky" label shortly after the page loads.
   useEffect(() => {
-    const t = setTimeout(() => setShowTeaser(true), 8000);
+    const t = setTimeout(() => setShowTeaser(true), 1500);
     return () => clearTimeout(t);
   }, []);
 
@@ -130,9 +130,10 @@ export default function Chatbot() {
           {showTeaser && (
             <button
               onClick={() => setOpen(true)}
-              className="max-w-[220px] rounded-2xl rounded-br-sm bg-white px-4 py-2.5 text-left text-sm font-medium text-ink-800 shadow-xl ring-1 ring-ink-200 animate-fade-in"
+              aria-label="Ask Lucky, open the chat"
+              className="ask-lucky-pill rounded-full bg-white px-5 py-2 animate-fade-in"
             >
-              Need help? Ask Lucky 💬
+              <span className="ask-lucky-text text-lg font-extrabold tracking-wide">Ask Lucky</span>
             </button>
           )}
           <button

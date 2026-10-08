@@ -25,6 +25,8 @@ interface Service {
   wide?: boolean;
   subtitle?: string;
   tags?: string[];
+  /** Optional bold-label bullet list shown instead of the plain description. */
+  points?: { label: string; text: string }[];
 }
 
 const SERVICES: Service[] = [
@@ -62,7 +64,13 @@ const SERVICES: Service[] = [
     art: 'infra',
     icon: Server,
     title: 'IT Infrastructure Projects',
-    desc: 'Planning and deployment of networks, servers and IT infrastructure for growing businesses.',
+    desc: 'LAN & structured cabling, fibre-optic cabling, network racks and professional installation, testing and maintenance.',
+    points: [
+      { label: 'LAN & Structured Cabling', text: 'Reliable network cabling for seamless connectivity.' },
+      { label: 'Fibre-Optic Cabling', text: 'High-speed fibre connectivity for business networks.' },
+      { label: 'Network Racks & Infrastructure', text: 'Organised racks and reliable networking components.' },
+      { label: 'Installation, Testing & Maintenance', text: 'Professional installation and dependable network support.' },
+    ],
   },
   {
     num: '06',
@@ -86,8 +94,8 @@ const SERVICES: Service[] = [
     wide: true,
     title: 'Connect. Communicate. Collaborate',
     subtitle: 'Professional Audio-Video & Unified Communication Solutions',
-    desc: 'Reliable conferencing systems, IP telephony and structured network infrastructure for modern workplaces, plus wired, wireless, USB, Bluetooth and noise-cancelling headsets for offices, contact centres and remote teams.',
-    tags: ['Conferencing', 'IP Telephony', 'Structured Networking', 'Professional Headsets'],
+    desc: 'Reliable conferencing systems and IP telephony for modern workplaces, plus wired, wireless, USB, Bluetooth and noise-cancelling headsets for offices, contact centres and remote teams.',
+    tags: ['Conferencing', 'IP Telephony', 'Professional Headsets', 'Call-Centre Headsets'],
   },
 ];
 
@@ -328,9 +336,22 @@ export default function Services() {
                   {service.subtitle && (
                     <p className="mt-1.5 text-sm font-semibold text-brand-600">{service.subtitle}</p>
                   )}
-                  <p className={`mt-3 text-sm leading-6 text-ink-500 ${service.wide ? 'max-w-xl' : ''}`}>
-                    {service.desc}
-                  </p>
+                  {service.points ? (
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-ink-500">
+                      {service.points.map((point) => (
+                        <li key={point.label} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" aria-hidden="true" />
+                          <span>
+                            <strong className="font-semibold text-ink-800">{point.label}:</strong> {point.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className={`mt-3 text-sm leading-6 text-ink-500 ${service.wide ? 'max-w-xl' : ''}`}>
+                      {service.desc}
+                    </p>
+                  )}
                   {service.tags && (
                     <div className="mt-4 flex flex-wrap gap-2">
                       {service.tags.map((tag) => (
