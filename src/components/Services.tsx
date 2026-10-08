@@ -8,11 +8,29 @@ import {
   Server,
   LifeBuoy,
   Search,
+  Headset,
 } from 'lucide-react';
+import { SERVICE_ART, type ServiceArtKey } from '@/components/ServiceArt';
 
-const SERVICES = [
+interface Service {
+  num: string;
+  icon: typeof Code;
+  title: string;
+  desc: string;
+  art: ServiceArtKey;
+  /** Optional real photo (e.g. '/services/cctv.jpg' placed in /public). Replaces the illustration. */
+  image?: string;
+  featured?: boolean;
+  isNew?: boolean;
+  wide?: boolean;
+  subtitle?: string;
+  tags?: string[];
+}
+
+const SERVICES: Service[] = [
   {
     num: '01',
+    art: 'web',
     icon: Code,
     title: 'Website Design and Development',
     desc: 'Modern, responsive and conversion-focused websites for businesses of every size.',
@@ -20,39 +38,56 @@ const SERVICES = [
   },
   {
     num: '02',
+    art: 'hosting',
     icon: Mail,
     title: 'Hosting and Business Email setup and Maintenance',
     desc: 'Reliable hosting plus professional business email, set up and maintained for you.',
   },
   {
     num: '03',
+    art: 'ai',
     icon: Bot,
     title: 'AI automation and Voice bots',
     desc: 'Smart automation and voice assistants that handle repetitive work and customer queries.',
   },
   {
     num: '04',
+    art: 'cctv',
     icon: Camera,
     title: 'CCTV installation and AMC support',
     desc: 'Professional CCTV setup with annual maintenance support to keep your premises secure.',
   },
   {
     num: '05',
+    art: 'infra',
     icon: Server,
     title: 'IT Infrastructure Projects',
     desc: 'Planning and deployment of networks, servers and IT infrastructure for growing businesses.',
   },
   {
     num: '06',
+    art: 'support',
     icon: LifeBuoy,
     title: 'IT Support and AMC',
     desc: 'Ongoing IT support and annual maintenance contracts to keep your systems running smoothly.',
   },
   {
     num: '07',
+    art: 'seo',
     icon: Search,
     title: 'SEO and Digital Marketing',
     desc: 'Strategies designed to improve visibility, traffic and online presence.',
+  },
+  {
+    num: '08',
+    art: 'comms',
+    icon: Headset,
+    isNew: true,
+    wide: true,
+    title: 'Connect. Communicate. Collaborate',
+    subtitle: 'Professional Audio-Video & Unified Communication Solutions',
+    desc: 'Reliable conferencing systems, IP telephony and structured network infrastructure for modern workplaces, plus wired, wireless, USB, Bluetooth and noise-cancelling headsets for offices, contact centres and remote teams.',
+    tags: ['Conferencing', 'IP Telephony', 'Structured Networking', 'Professional Headsets'],
   },
 ];
 
@@ -205,7 +240,7 @@ export default function Services() {
                   ['--mouse-x' as string]: '50%',
                   ['--mouse-y' as string]: '50%',
                 }}
-                className={`group relative min-h-[300px] overflow-hidden rounded-2xl border bg-white p-7 transition-[transform,opacity,box-shadow,border-color] duration-700 ease-out will-change-transform ${
+                className={`group relative min-h-[300px] overflow-hidden ${service.wide ? 'lg:col-span-2' : ''} rounded-2xl border bg-white p-7 transition-[transform,opacity,box-shadow,border-color] duration-700 ease-out will-change-transform ${
                   isVisible
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-10 opacity-0'
@@ -224,6 +259,36 @@ export default function Services() {
                   }}
                 />
 
+                {/* Background picture: photo if provided, otherwise line-art illustration */}
+                <div
+                  className={`pointer-events-none absolute inset-y-0 right-0 text-brand-600 transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-100 ${
+                    service.wide ? 'w-[62%] opacity-60' : 'w-[78%] opacity-50'
+                  }`}
+                  style={{
+                    WebkitMaskImage: 'linear-gradient(to left, #000 35%, transparent 100%)',
+                    maskImage: 'linear-gradient(to left, #000 35%, transparent 100%)',
+                  }}
+                  aria-hidden="true"
+                >
+                  {service.image ? (
+                    <img
+                      src={service.image}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover opacity-40"
+                    />
+                  ) : (
+                    (() => {
+                      const ArtComponent = SERVICE_ART[service.art];
+                      return (
+                        <div className="h-full w-full p-4 pt-10 opacity-60">
+                          <ArtComponent />
+                        </div>
+                      );
+                    })()
+                  )}
+                </div>
+
                 {/* Animated top accent */}
                 <div className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-brand-600 transition-transform duration-500 ease-out group-hover:scale-x-100" />
 
@@ -239,6 +304,11 @@ export default function Services() {
                     >
                       <Icon className="h-6 w-6 transition-transform duration-500 group-hover:scale-110" />
                     </span>
+                    {service.isNew && (
+                      <span className="absolute -right-3 -top-2 rounded-full bg-ink-900 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-md">
+                        New
+                      </span>
+                    )}
                     {service.featured && (
                       <span className="absolute -right-2 -top-2 rounded-full bg-brand-600 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-md">
                         Core
@@ -255,7 +325,24 @@ export default function Services() {
                   <h3 className="text-xl font-bold tracking-tight text-ink-900 transition-colors duration-300 group-hover:text-brand-700">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-ink-500">{service.desc}</p>
+                  {service.subtitle && (
+                    <p className="mt-1.5 text-sm font-semibold text-brand-600">{service.subtitle}</p>
+                  )}
+                  <p className={`mt-3 text-sm leading-6 text-ink-500 ${service.wide ? 'max-w-xl' : ''}`}>
+                    {service.desc}
+                  </p>
+                  {service.tags && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-brand-200 bg-white/80 px-3 py-1 text-xs font-semibold text-brand-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <a
