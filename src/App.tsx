@@ -10,6 +10,7 @@ import Services from '@/components/Services';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import Process from '@/components/Process';
 import Portfolio from '@/components/Portfolio';
+import CaseStudies from '@/components/CaseStudies';
 import Testimonials from '@/components/Testimonials';
 import About from '@/components/About';
 import FAQ from '@/components/FAQ';
@@ -58,6 +59,7 @@ function MainSite() {
         <WhyChooseUs />
         <Process />
         <Portfolio />
+        <CaseStudies />
         <Testimonials />
         <About />
         <FAQ />
