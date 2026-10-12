@@ -164,7 +164,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
-          <p className="text-xs text-ink-500 transition-opacity duration-700 delay-500">© 2026 GD Solutions. All rights reserved.</p>
+          <div className="flex flex-col items-center gap-1 text-xs text-ink-500 sm:flex-row sm:gap-4">
+            <p className="transition-opacity duration-700 delay-500">© 2026 GD Solutions. All rights reserved.</p>
+            <span className="hidden h-3 w-px bg-white/15 sm:block" aria-hidden="true" />
+            <p className="font-medium tracking-wide">
+              GSTIN: <span className="text-ink-300">19ABEPB8915C1ZX</span>
+            </p>
+          </div>
           <a
             href="https://wa.me/918282899565"
             target="_blank"
